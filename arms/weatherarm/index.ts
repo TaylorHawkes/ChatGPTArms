@@ -43,8 +43,8 @@ export class WeatherArm {
      }
 
      public async getZipCode(convo){
-      //let content="I'll check for you. What's your zip code?";
-      let content="I'll check for you. Where do you live?";
+      let content="I'll check for you. What's your zip code?";
+      //let content="I'll check for you. Where do you live?";
       return {
           "content":content,
           "need_zip":true,
@@ -54,8 +54,7 @@ export class WeatherArm {
   
      public async checkWeatherOutside(convo){
 
-      //const zipCode=convo.chatQuery;
-      const zipCode=80027;
+      const zipCode=convo.chatQuery;
 
     //if(!usZips.hasOwnProperty(zipCode)){
     //    return {
