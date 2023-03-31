@@ -10,8 +10,9 @@ You can see a clear example in the [WeatherArm Package](https://github.com/Taylo
 This is still very much a work in progress, I'm looking for contributors to help develop the core package as well as adding "Arms". 
 
 See video intro below to see how this works.
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/o2LiPkkIjeQ/0.jpg)](http://www.youtube.com/watch?v=o2LiPkkIjeQ "Video Title")
+
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/o2LiPkkIjeQ/0.jpg)](http://www.youtube.com/watch?v=o2LiPkkIjeQ "ChatGPT")
 
 
-Here is a live demo: (http://www.chatgptarms.com)
+Here is a live demo: (http://chatgptarms.com)
 
