@@ -14,5 +14,7 @@ See video intro below to see how this works.
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/o2LiPkkIjeQ/0.jpg)](http://www.youtube.com/watch?v=o2LiPkkIjeQ "ChatGPT")
 
 
-Here is a live demo: (http://chatgptarms.com)
+Here is a live demo: http://chatgptarms.com
 
+Contributors can join us on discord: https://discord.gg/56QKjfpa
+See what we need to get done on trello: https://trello.com/b/BHtgp4zU/chatgpt-arms
