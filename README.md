@@ -17,4 +17,5 @@ See video intro below to see how this works.
 Here is a live demo: http://chatgptarms.com
 
 Contributors can join us on discord: https://discord.gg/56QKjfpa
+
 See what we need to get done on trello: https://trello.com/b/BHtgp4zU/chatgpt-arms
