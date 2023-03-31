@@ -55,7 +55,7 @@ export default function PermanentDrawerLeft() {
       >
         <Toolbar>
           <Typography variant="h6" noWrap component="div">
-          ChatGPT Arms
+          ChatGPT Arms <a href="https://github.com/TaylorHawkes/ChatGPTArms" target="_blank">Fork On GitHub</a>
           </Typography>
         </Toolbar>
       </AppBar>
