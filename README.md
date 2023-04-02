@@ -31,8 +31,8 @@ or
   ```
 
 # Demo & Other info
-- View the live site at: https://chatgptarms.com
-- Contributors are requested to join the Discord server for discussions: https://discord.gg/56QKjfpa
+- View the live site at: http://chatgptarms.com
+- Contributors are requested to join the Discord server for discussions: https://discord.gg/jxRR8FfrMN
 - TODO list is available on Trello: https://trello.com/b/BHtgp4zU/chatgpt-arms
 
 # Contributing
