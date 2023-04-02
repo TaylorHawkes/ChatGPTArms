@@ -1,7 +1,9 @@
 import React from 'react';
 import usZips from 'us-zips';
 import {WeatherArm} from '../weatherarm';
-//import {EmailArm} from '../emailarm';
+import {TdAmeritradeArm} from '../chatgptarmstdameritrade';
+import { Configuration, OpenAIApi } from "openai";
+import {EmailArm} from '../emailarm';
 
 /*
   export const config = {
@@ -17,8 +19,45 @@ export class ChatGPTArms {
     constructor() {
      this.arms=[
          new WeatherArm(),
+         new TdAmeritradeArm()
          //new EmailArm()
      ];
+    }
+
+
+
+    public async chatGPTParseToJson(parse_text) {
+
+    const configuration = new Configuration({
+      apiKey: process.env.OPENAI_API_KEY,
+    });
+      const payload = {
+        model: "gpt-3.5-turbo",
+        messages: [{role: "user", content:parse_text}],
+        temperature: 0.7,
+        top_p: 1,
+        frequency_penalty: 0,
+        presence_penalty: 0,
+        max_tokens: 70,
+        n: 1,
+      };
+       const bearer= "Bearer "+configuration.apiKey;
+       const completion = await fetch("https://api.openai.com/v1/chat/completions", {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: bearer,
+        },
+        method: "POST",
+        body: JSON.stringify(payload),
+      });
+
+      const json_result = await completion.json();
+        try {
+        const json= JSON.parse(json_result.choices[0].message.content);
+        return json;
+        } catch (error) {
+            return false;
+        }
     }
 
 
