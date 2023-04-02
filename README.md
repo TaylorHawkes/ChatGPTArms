@@ -1,5 +1,5 @@
 # Introduction - ChatGPT Arms
-ChatGPT Arms provides a standardized interface for hooking up [ChatGPT](https://chat.openai.com/) with the "Real World", aka API's and third party systems, etc. The "Arms" basically means allowing ChatGPT to interact with the real world and getting data from third party systems other than the trained data. This can be useful in many ways such as looking for the weather to viewing the nearby places in your location.
+ChatGPT Arms provides an open source & standardized interface for hooking up [ChatGPT](https://chat.openai.com/) with the "Real World", aka API's and third party systems, etc. The "Arms" basically means allowing ChatGPT to interact with the real world and getting data from third party systems other than the trained data. This can be useful in many ways such as looking for the weather to viewing the nearby places in your location.
 See video intro below to see how this works:
 
 [![Introductory video on youtube.com](https://us-east-1.tixte.net/uploads/almightynan.needs.rest/View_the_video_intro_%E2%86%97%EF%B8%8F.png)](http://www.youtube.com/watch?v=o2LiPkkIjeQ "Click here to redirect yourself to YouTube ↗️")
