@@ -5,7 +5,7 @@ See video intro below to see how this works:
 [![Introductory video on youtube.com](https://us-east-1.tixte.net/uploads/almightynan.needs.rest/View_the_video_intro_%E2%86%97%EF%B8%8F.png)](http://www.youtube.com/watch?v=o2LiPkkIjeQ "Click here to redirect yourself to YouTube ↗️")
 
 # How is this possible?
-This project uses the [WeatherArm](https://github.com/TaylorHawkes/ChatGPTArms/tree/main/arms) package. An arm is just a npm package that implements one method called "`processConversation`", as the user converses with ChatGPT every arm will get a change to process the conversation using it's own logic, if that arm detects it is need to do something (ex: check the weather) it returns a prompt rather than sending it to chatGPT.
+This project uses [Arms](https://github.com/TaylorHawkes/ChatGPTArms/tree/main/arms), which is just an npm package that implements one method called "`processConversation`", as the user converses with ChatGPT every arm will get a change to process the conversation using it's own logic, if that arm detects it is need to do something (ex: check the weather) it returns a prompt rather than sending it to chatGPT.
 
 You can see a clear example in the [WeatherArm Package by clicking here.](https://github.com/TaylorHawkes/ChatGPTArms/blob/main/arms/weatherarm/index.ts) 
 
@@ -38,3 +38,6 @@ or
 # Contributing
 Fork [this repository](https://github.com/TaylorHawkes/ChatGPTArms) and create a branch to get started. Commit the changes in the forked repository and submit a pull request.
 This is still very much a work in progress, I'm looking for contributors to help develop the core package as well as adding "Arms" to the interface. 
+=======
+
+

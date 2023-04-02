@@ -16,6 +16,9 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import Icon from '@mui/material/Icon';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import ChatIcon from '@mui/icons-material/Chat';
 
 /*
 export default function ButtonAppBar() {
@@ -54,9 +57,16 @@ export default function PermanentDrawerLeft() {
         sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
       >
         <Toolbar>
-          <Typography variant="h6" noWrap component="div">
-          ChatGPT Arms <a href="https://github.com/TaylorHawkes/ChatGPTArms" target="_blank">Fork On GitHub</a>
+           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            ChatGPT Arms 
           </Typography>
+
+          <Button color="inherit" variant="contained">
+            <a href="https://github.com/TaylorHawkes/ChatGPTArms" target="_blank"> <GitHubIcon/> Fork On GitHub</a>
+          </Button>
+          <Button color="inherit" variant="contained" sx={{ ml: 1 }}>
+            <a href="https://discord.gg/56QKjfpa" target="_blank"> <ChatIcon/>Join Discord</a>
+          </Button>
         </Toolbar>
       </AppBar>
       <Drawer
