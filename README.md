@@ -36,8 +36,8 @@ or
 - TODO list is available on Trello: https://trello.com/b/BHtgp4zU/chatgpt-arms
 
 # Contributing
+
 Fork [this repository](https://github.com/TaylorHawkes/ChatGPTArms) and create a branch to get started. Commit the changes in the forked repository and submit a pull request.
 This is still very much a work in progress, I'm looking for contributors to help develop the core package as well as adding "Arms" to the interface. 
-=======
 
 
