@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "./index.module.css";
 import PermanentDrawerLeft from '../components/navbar';
 import Head from "next/head";
+import { ChatHistory } from "../utils/chat-history";
 
 
 export default function Home(): JSX.Element {
@@ -50,13 +51,13 @@ export default function Home(): JSX.Element {
                 messages.push(new_messages_json[i]);
                 const newMessages = JSON.parse(JSON.stringify(messages))
                 setMessages(newMessages);
-                saveMessagesOnChatHistory(messages)
+                ChatHistory.saveConversation(messages)
                 firstResult=false;
               }else{
                 messages[messages.length-1].content+=new_messages_json[i].content;
                 const newMessages = JSON.parse(JSON.stringify(messages))
                 setMessages(newMessages);
-                saveMessagesOnChatHistory(messages)
+                ChatHistory.saveConversation(messages)
             }
         }
 
@@ -85,7 +86,7 @@ export default function Home(): JSX.Element {
   }
 
   useEffect(() => {
-    const history = loadChatHistory()
+    const history = ChatHistory.load()
     setMessages(history)
   }, [])
 
@@ -103,19 +104,6 @@ const scrollToBottomWithSmoothScroll = () => {
     top: theElement.scrollHeight,
     behavior: 'smooth',
   })
-}
-
-const loadChatHistory = () => {
-  let history = localStorage.getItem('chat-history')
-  if (!history) {
-    localStorage.setItem('chat-history', JSON.stringify([]))
-    history = localStorage.getItem('chat-history')
-  }
-  return JSON.parse(history)
-}
-
-const saveMessagesOnChatHistory = (conversation: any[]) => {
-  localStorage.setItem('chat-history', JSON.stringify(conversation))
 }
 
 //scrollToBottomWithSmoothScroll()
