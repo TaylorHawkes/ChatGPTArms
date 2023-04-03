@@ -1,17 +1,14 @@
-import Head from "next/head";
 import { useState } from "react";
 import styles from "./index.module.css";
-import * as React from 'react';
-import Button from '@mui/material/Button';
 import PermanentDrawerLeft from '../components/navbar';
+import Head from "next/head";
 
 
-export default function Home() {
+export default function Home(): JSX.Element {
   const [chatQuery, setChatQuery] = useState("");
-  const [result, setResult] = useState();
   const [messages,setMessages] = useState([]);
 
-  async function onSubmit(event) {
+  async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     try {
       //push the user message onto the convo
@@ -87,30 +84,29 @@ export default function Home() {
 
 // without smooth-scroll
 const scrollToBottom = () => {
-        const theElement = document.getElementById('convo_ul');
-        theElement.scrollTop = theElement.scrollHeight;
-		//divRef.current.scrollTop = divRef.current.scrollHeight;
+  const theElement = document.getElementById('convo_ul');
+  theElement.scrollTop = theElement.scrollHeight;
+	//divRef.current.scrollTop = divRef.current.scrollHeight;
 };
 
 //with smooth-scroll
 const scrollToBottomWithSmoothScroll = () => {
-    const theElement = document.getElementById('convo_ul');
-       theElement.scrollTo({
-        top: theElement.scrollHeight,
-        behavior: 'smooth',
-      })
+  const theElement = document.getElementById('convo_ul');
+  theElement.scrollTo({
+    top: theElement.scrollHeight,
+    behavior: 'smooth',
+  })
 }
 
 //scrollToBottomWithSmoothScroll()
 
 
-  return (
-    <div>
-
+return (
+    <>
       <Head>
         <title>ChatGPT Arms</title>
       </Head>
-      <PermanentDrawerLeft></PermanentDrawerLeft>
+      <PermanentDrawerLeft />
       <main className={styles.main}>
         <ul className={styles.convo_ul} id="convo_ul">
             {messages.map((message) => (
@@ -122,12 +118,12 @@ const scrollToBottomWithSmoothScroll = () => {
           <input
             type="text"
             name="animal"
-            placeholder="How can i help you?"
+            placeholder="How can I help you?"
             value={chatQuery}
             onChange={(e) => setChatQuery(e.target.value)}
           />
         </form>
       </main>
-    </div>
+    </>
   );
 }
