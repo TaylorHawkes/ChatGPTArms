@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./index.module.css";
 import PermanentDrawerLeft from '../components/navbar';
 import Head from "next/head";
+import { ChatHistory } from "../utils/chat-history";
 
 
 export default function Home(): JSX.Element {
@@ -12,7 +13,8 @@ export default function Home(): JSX.Element {
     event.preventDefault();
     try {
       //push the user message onto the convo
-      messages.push({role: "user", content:chatQuery})
+      let message = {role: 'user', content:chatQuery}
+      messages.push(message)
       setMessages(JSON.parse(JSON.stringify(messages)));
       scrollToBottomWithSmoothScroll();
 
@@ -44,17 +46,18 @@ export default function Home(): JSX.Element {
         }
         const raw_message= new TextDecoder().decode(value);
         const new_messages_json = JSON.parse('[' + raw_message.replace(/\}\{/g, '},{') + ']');
-        //console.log(new_messages_json);
         for (let i = 0; i < new_messages_json.length; i++) {
             if(firstResult){
                 messages.push(new_messages_json[i]);
                 const newMessages = JSON.parse(JSON.stringify(messages))
                 setMessages(newMessages);
+                ChatHistory.saveConversation(messages)
                 firstResult=false;
-            }else{
+              }else{
                 messages[messages.length-1].content+=new_messages_json[i].content;
                 const newMessages = JSON.parse(JSON.stringify(messages))
                 setMessages(newMessages);
+                ChatHistory.saveConversation(messages)
             }
         }
 
@@ -81,6 +84,11 @@ export default function Home(): JSX.Element {
       alert(error.message);
     }
   }
+
+  useEffect(() => {
+    const history = ChatHistory.load()
+    setMessages(history)
+  }, [])
 
 // without smooth-scroll
 const scrollToBottom = () => {
