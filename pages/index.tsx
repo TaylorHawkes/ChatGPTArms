@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./index.module.css";
 import PermanentDrawerLeft from '../components/navbar';
 import Head from "next/head";
@@ -12,7 +12,8 @@ export default function Home(): JSX.Element {
     event.preventDefault();
     try {
       //push the user message onto the convo
-      messages.push({role: "user", content:chatQuery})
+      let message = {role: 'user', content:chatQuery}
+      messages.push(message)
       setMessages(JSON.parse(JSON.stringify(messages)));
       scrollToBottomWithSmoothScroll();
 
@@ -44,14 +45,13 @@ export default function Home(): JSX.Element {
         }
         const raw_message= new TextDecoder().decode(value);
         const new_messages_json = JSON.parse('[' + raw_message.replace(/\}\{/g, '},{') + ']');
-        //console.log(new_messages_json);
         for (let i = 0; i < new_messages_json.length; i++) {
             if(firstResult){
                 messages.push(new_messages_json[i]);
                 const newMessages = JSON.parse(JSON.stringify(messages))
                 setMessages(newMessages);
                 firstResult=false;
-            }else{
+              }else{
                 messages[messages.length-1].content+=new_messages_json[i].content;
                 const newMessages = JSON.parse(JSON.stringify(messages))
                 setMessages(newMessages);
@@ -82,6 +82,11 @@ export default function Home(): JSX.Element {
     }
   }
 
+  useEffect(() => {
+    const history = loadChatHistory()
+    setMessages(history)
+  }, [])
+
 // without smooth-scroll
 const scrollToBottom = () => {
   const theElement = document.getElementById('convo_ul');
@@ -96,6 +101,16 @@ const scrollToBottomWithSmoothScroll = () => {
     top: theElement.scrollHeight,
     behavior: 'smooth',
   })
+}
+
+const loadChatHistory = () => {
+  let history = localStorage.getItem('chat-history')
+  if (!history) {
+    localStorage.setItem('chat-history', JSON.stringify([]))
+    history = localStorage.getItem('chat-history')
+  }
+  console.log(history)
+  return JSON.parse(history)
 }
 
 //scrollToBottomWithSmoothScroll()
