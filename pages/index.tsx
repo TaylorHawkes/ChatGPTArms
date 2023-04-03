@@ -14,6 +14,7 @@ export default function Home(): JSX.Element {
       //push the user message onto the convo
       let message = {role: 'user', content:chatQuery}
       messages.push(message)
+      saveMessageOnChatHistory(message)
       setMessages(JSON.parse(JSON.stringify(messages)));
       scrollToBottomWithSmoothScroll();
 
@@ -48,6 +49,7 @@ export default function Home(): JSX.Element {
         for (let i = 0; i < new_messages_json.length; i++) {
             if(firstResult){
                 messages.push(new_messages_json[i]);
+                saveMessageOnChatHistory(new_messages_json[i])
                 const newMessages = JSON.parse(JSON.stringify(messages))
                 setMessages(newMessages);
                 firstResult=false;
@@ -111,6 +113,14 @@ const loadChatHistory = () => {
   }
   console.log(history)
   return JSON.parse(history)
+}
+
+const saveMessageOnChatHistory = (newMessage: {role: string, content: string}) => {
+  const history = loadChatHistory()
+  console.log(history)
+  history.push(newMessage)
+  localStorage.setItem('chat-history', JSON.stringify(history))
+  setMessages([...messages, newMessage])
 }
 
 //scrollToBottomWithSmoothScroll()
