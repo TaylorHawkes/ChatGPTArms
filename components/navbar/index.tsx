@@ -16,6 +16,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { BsDiscord } from 'react-icons/bs';
+import { ChatHistory } from '../../utils/chat-history';
 
 
 /*
@@ -119,7 +120,7 @@ export default function PermanentDrawerLeft(): JSX.Element {
                 <ListItemIcon>
                   {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                 </ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemText primary={text} onClick={() => ChatHistory.clear()} />
               </ListItemButton>
             </ListItem>
           ))}
