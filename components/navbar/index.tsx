@@ -5,7 +5,6 @@ import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -13,12 +12,11 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import MailIcon from '@mui/icons-material/Mail';
-import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Icon from '@mui/material/Icon';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import ChatIcon from '@mui/icons-material/Chat';
+import { BsDiscord } from 'react-icons/bs';
+
 
 /*
 export default function ButtonAppBar() {
@@ -48,7 +46,7 @@ export default function ButtonAppBar() {
 
 const drawerWidth = 240;
 
-export default function PermanentDrawerLeft() {
+export default function PermanentDrawerLeft(): JSX.Element {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -61,14 +59,32 @@ export default function PermanentDrawerLeft() {
             ChatGPT Arms 
           </Typography>
 
-          <Button color="inherit" variant="contained">
+          {/* <Button color="inherit" variant="contained">
             <a href="https://github.com/TaylorHawkes/ChatGPTArms" target="_blank"> <GitHubIcon/> Fork On GitHub</a>
+          </Button> */}
+          <Button
+            sx={{backgroundColor: "black"}}
+            href="https://github.com/TaylorHawkes/ChatGPTArms"
+            target="_blank"
+            variant="contained"
+            startIcon={<GitHubIcon />}
+          >
+            Fork On GitHub
           </Button>
-          <Button color="inherit" variant="contained" sx={{ ml: 1 }}>
-            <a href="https://discord.gg/56QKjfpa" target="_blank"> <ChatIcon/>Join Discord</a>
+          <div style={{width: "10px"}}/>
+          <Button
+            sx={{backgroundColor: "purple"}}
+            href="https://discord.gg/56QKjfpa"
+            target="_blank"
+            variant="contained"
+            startIcon={<BsDiscord />}
+          >
+            Join Discord
           </Button>
         </Toolbar>
+
       </AppBar>
+
       <Drawer
         sx={{
           width: drawerWidth,
